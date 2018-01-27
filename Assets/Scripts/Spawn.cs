@@ -46,10 +46,4 @@ public class Spawn : MonoBehaviour
             }
         }
     }
-
-    public void EnnemiMort(Ennemi ennemi)
-    {
-        ennemi.gameObject.SetActive(false);
-        Debug.Log("Ennemi tué");
-    }
 }

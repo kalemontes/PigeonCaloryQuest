@@ -15,6 +15,7 @@ public class PigeonMouvement : MonoBehaviour
 
     public float speed;
     public float weight;
+    int currrentWeightLevel;
 
     private float y;
 
@@ -24,6 +25,7 @@ public class PigeonMouvement : MonoBehaviour
         //TODO: rotater = GameObject.Find("Cube"); comprendre ce que ça fait ??
         initialScale = gameObject.transform.localScale;
         weight = STANDARD_WEIGHT;
+        currrentWeightLevel = 0;
 
         InvokeRepeating("ApplyWeightLose", 5.0f, 5.0f);
     }
@@ -41,7 +43,7 @@ public class PigeonMouvement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Une collision avec quelque chose");
+        //Debug.Log("Une collision avec quelque chose");
         bool didCollideWithEnnemi = HandleCollisionWithFrontEnnemi(other);
         if (didCollideWithEnnemi)
         {
@@ -55,7 +57,7 @@ public class PigeonMouvement : MonoBehaviour
         FrontEnnemi ennemi = other.GetComponent<FrontEnnemi>();
         if (ennemi)
         {
-            Debug.Log("Collision avec un FrontEnnemi detectée");
+            //Debug.Log("Collision avec un FrontEnnemi detectée");
             ApplyWeightGain(ennemi.calories);
             didHandle = true;
         }
@@ -66,53 +68,60 @@ public class PigeonMouvement : MonoBehaviour
 
     private void ApplyScaledWeight()
     {
-        if (weight.IsBetweenEE(STANDARD_WEIGHT, MAX_WEIGHT))
-        {
-            float weightDelta = weight - STANDARD_WEIGHT;
-            float scaleLevel = weightDelta * MAX_SCALE_LEVELS / MAX_GAIN_WEIGHT;
-            Vector3 weightScale = new Vector3(0f, 0f, 0f); ;
+        // Si j'ai le poids max j'ai comme meme le droit de perdre du poids
+        // Si j'ai le poids min je peut prendre du poids
+        // Si jeu suis entre les deux je peux prendre ou perdre du poids
 
-            if (scaleLevel.IsBetweenEE(1f, 2f))
-            {
-                weightScale = new Vector3(SCALE_WEIGHT_FACTOR, SCALE_WEIGHT_FACTOR, 0f);
-                //TODO: charger le sprite si necessaire
-            }
-            else if (scaleLevel.IsBetweenEE(2f, 3f))
-            {
-                weightScale = new Vector3(2 * SCALE_WEIGHT_FACTOR, 2 * SCALE_WEIGHT_FACTOR, 0f);
-                //TODO: charger le sprite si necessaire
-            }
-            else if (scaleLevel.IsBetweenEE(3f, 4f))
-            {
-                weightScale = new Vector3(3 * SCALE_WEIGHT_FACTOR, 3 * SCALE_WEIGHT_FACTOR, 0f);
-                //TODO: charger le sprite si necessaire
-            }
-            else if (scaleLevel.IsBetweenEE(4f, 5f))
-            {
-                weightScale = new Vector3(4 * SCALE_WEIGHT_FACTOR, 4 * SCALE_WEIGHT_FACTOR, 0f);
-                //TODO: charger le sprite si necessaire
-            }
-            else if (scaleLevel.IsBetweenEE(5f, 6f))
-            {
-                weightScale = new Vector3(5 * SCALE_WEIGHT_FACTOR, 5 * SCALE_WEIGHT_FACTOR, 0f);
-                //TODO: charger le sprite si necessaire
-            }
-            transform.localScale = initialScale + weightScale;
+        float weightDelta = weight - STANDARD_WEIGHT;
+        float scaleLevel = weightDelta * MAX_SCALE_LEVELS / MAX_GAIN_WEIGHT;
+
+        if (scaleLevel.IsBetweenEE(1f, 2f))
+        {
+            currrentWeightLevel = 1;
+            //TODO: charger le sprite si necessaire
         }
+        else if (scaleLevel.IsBetweenEE(2f, 3f))
+        {
+            currrentWeightLevel = 2;
+            //TODO: charger le sprite si necessaire
+        }
+        else if (scaleLevel.IsBetweenEE(3f, 4f))
+        {
+            currrentWeightLevel = 3;
+            //TODO: charger le sprite si necessaire
+        }
+        else if (scaleLevel.IsBetweenEE(4f, 5f))
+        {
+            currrentWeightLevel = 4;
+            //TODO: charger le sprite si necessaire
+        }
+        else if (scaleLevel.IsBetweenEE(5f, 6f))
+        {
+            currrentWeightLevel = 5;
+            //TODO: charger le sprite si necessaire
+        }
+        transform.localScale = initialScale + new Vector3(currrentWeightLevel * SCALE_WEIGHT_FACTOR, currrentWeightLevel * SCALE_WEIGHT_FACTOR, 0f);
+        Debug.Log("Poids actuel du pigeon : " + weight + " avec scale " + currrentWeightLevel);
     }
 
     private void ApplyWeightGain(int calories)
     {
-        Debug.Log("Le pigeon prend un poid de + " + calories);
-        this.weight += calories;
-        ApplyScaledWeight();
+        if (this.weight.IsBetweenII(STANDARD_WEIGHT, MAX_WEIGHT - calories))
+        {
+            Debug.Log("Le pigeon prend un poid de + " + calories);
+            this.weight += calories;
+            ApplyScaledWeight();
+        }
     }
 
     private void ApplyWeightLose(int calories)
     {
-        Debug.Log("Le pigeon perds un poid de - " + calories);
-        this.weight -= calories;
-        ApplyScaledWeight();
+        if (this.weight.IsBetweenII(STANDARD_WEIGHT + calories, MAX_WEIGHT))
+        {
+            Debug.Log("Le pigeon perds un poid de - " + calories);
+            this.weight -= calories;
+            ApplyScaledWeight();
+        }
     }
 
     private void ApplyWeightLose()
