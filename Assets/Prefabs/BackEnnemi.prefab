@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 33707004624288378}
   - component: {fileID: 65824552532040764}
   - component: {fileID: 23038567375663284}
-  - component: {fileID: 114305185447941472}
   - component: {fileID: 54411037526915044}
+  - component: {fileID: 114654426243345126}
   m_Layer: 0
   m_Name: BackEnnemi
-  m_TagString: FrontEnnemi
+  m_TagString: BackEnnemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e30a326df0037ed4996c450d95c59c84, type: 2}
+  - {fileID: 2100000, guid: f7b80ab541156a04d8c96c3e137a6cf3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114305185447941472
+--- !u!114 &114654426243345126
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1928716822738994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b3a40affb14f846b894a5842802abb, type: 3}
+  m_Script: {fileID: 11500000, guid: cbea717ad1652ba4dba25e06de20b5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  L_speed: 10
-  calories: 15
+  L_speed: 15
+  calories: 20
