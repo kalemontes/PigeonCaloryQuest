@@ -55,4 +55,6 @@ public class PigeonMouvement : MonoBehaviour
         //TODO: faire l'echelle en fonction du poids du pigeon
         gameObject.transform.localScale = new Vector3(2, 2, 1);
     }
+
+
 }

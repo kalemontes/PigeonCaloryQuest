@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class IAEnnemi : MonoBehaviour {
+public abstract class Ennemi : MonoBehaviour {
 
     public float L_speed;
     public float calories;
