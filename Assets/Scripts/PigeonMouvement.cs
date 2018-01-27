@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigeonMouvement : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class PigeonMouvement : MonoBehaviour
         {
             //TODO: quelque chose ici ?
         }
+
+		if (other.tag == "DeathWall") {
+			SceneManager.LoadScene ("GameOver");
+		}
     }
 
     private bool HandleCollisionWithFrontEnnemi(Collider other)
@@ -114,6 +119,11 @@ public class PigeonMouvement : MonoBehaviour
         }
     }
 
+
+	public float GetSpeed(){
+		return speed;
+	}
+
     private void ApplyWeightLose(int calories)
     {
         if (this.weight.IsBetweenII(STANDARD_WEIGHT + calories, MAX_WEIGHT))
@@ -146,4 +156,5 @@ public class PigeonMouvement : MonoBehaviour
     }
 
     #endregion
+
 }
