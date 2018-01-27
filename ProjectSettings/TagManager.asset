@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pigeon
-  - FrontEnnemi
   - DeathWall
+  - FrontEnnemi
+  - BackEnnemi
   layers:
   - Default
   - TransparentFX
