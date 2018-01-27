@@ -12,18 +12,21 @@ public class PigeonMouvement : MonoBehaviour
     private const float SCALE_WEIGHT_FACTOR = 0.5f;
     private const int WEIGHT_LOOSE_FACTOR = 5;  // nombre de grammes perdus par le pigeon à chaque effort
 
+    private const int MIN_DRAG = 1;
+    private const int MAX_DRAG = 10;
+
     private Vector3 initialScale;
+    public Rigidbody rigidBody;
 
     public float speed;
     public float weight;
     int currrentWeightLevel;
 
-    private float y;
-
     // Use this for initialization
     void Start()
     {
         //TODO: rotater = GameObject.Find("Cube"); comprendre ce que ça fait ??
+        rigidBody = GetComponent<Rigidbody>();
         initialScale = gameObject.transform.localScale;
         weight = STANDARD_WEIGHT;
         currrentWeightLevel = 0;
@@ -52,7 +55,7 @@ public class PigeonMouvement : MonoBehaviour
         }
 
 		if (other.tag == "DeathWall") {
-			SceneManager.LoadScene ("GameOver");
+			SceneManager.LoadScene("GameOver");
 		}
     }
 
@@ -109,6 +112,12 @@ public class PigeonMouvement : MonoBehaviour
         Debug.Log("Poids actuel du pigeon : " + weight + " avec scale " + currrentWeightLevel);
     }
 
+    private void ApplyWeightDrag()
+    {
+        float conversionRatio = (MAX_WEIGHT - STANDARD_WEIGHT) / (MAX_DRAG - MIN_DRAG);
+        rigidBody.drag = MAX_DRAG - ((weight - STANDARD_WEIGHT) / conversionRatio);
+    }
+
     private void ApplyWeightGain(int calories)
     {
         if (this.weight.IsBetweenII(STANDARD_WEIGHT, MAX_WEIGHT - calories))
@@ -116,6 +125,7 @@ public class PigeonMouvement : MonoBehaviour
             Debug.Log("Le pigeon prend un poid de + " + calories);
             this.weight += calories;
             ApplyScaledWeight();
+            ApplyWeightDrag();
         }
     }
 
@@ -131,6 +141,7 @@ public class PigeonMouvement : MonoBehaviour
             Debug.Log("Le pigeon perds un poid de - " + calories);
             this.weight -= calories;
             ApplyScaledWeight();
+            ApplyWeightDrag();
         }
     }
 
@@ -145,7 +156,7 @@ public class PigeonMouvement : MonoBehaviour
 
     private void Fly()
     {
-        y = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        float y = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         transform.Translate(0, y, 0);
     }
 
