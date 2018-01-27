@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Ennemi : MonoBehaviour {
 
     public float L_speed;
-    public float calories;
+    public int calories;
 
     // Use this for initialization
     void Start () {
