@@ -48,7 +48,8 @@ public class PigeonMouvement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Une collision avec quelque chose");
-        bool didCollideWithEnnemi = HandleCollisionWithFrontEnnemi(other);
+        bool didCollideWithEnnemi = HandleCollisionWithFrontEnnemi(other) ||
+            HandleCollisionWithBackeEnnemi(other);
         if (didCollideWithEnnemi)
         {
             //TODO: quelque chose ici ?
@@ -62,11 +63,23 @@ public class PigeonMouvement : MonoBehaviour
     private bool HandleCollisionWithFrontEnnemi(Collider other)
     {
         bool didHandle = false;
-        FrontEnnemi ennemi = other.GetComponent<FrontEnnemi>();
-        if (ennemi)
+        FrontEnnemi frontEnnemi = other.GetComponent<FrontEnnemi>();
+        if (frontEnnemi)
         {
             //Debug.Log("Collision avec un FrontEnnemi detectée");
-            ApplyWeightGain(ennemi.calories);
+            ApplyWeightGain(frontEnnemi.calories);
+            didHandle = true;
+        }
+        return didHandle;
+    }
+
+    private bool HandleCollisionWithBackeEnnemi(Collider other)
+    {
+        bool didHandle = false;
+        BackEnnemi backEnnemi = other.GetComponent<BackEnnemi>();
+        if (backEnnemi)
+        {
+            ApplyWeightGain(backEnnemi.calories);
             didHandle = true;
         }
         return didHandle;
