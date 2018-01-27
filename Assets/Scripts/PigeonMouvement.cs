@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PigeonMouvement : MonoBehaviour
 {
@@ -47,6 +48,10 @@ public class PigeonMouvement : MonoBehaviour
         {
             //TODO: quelque chose ici ?
         }
+
+		if (other.tag == "DeathWall") {
+			SceneManager.LoadScene ("GameOver");
+		}
     }
 
     private bool HandleCollisionWithFrontEnnemi(Collider other)
@@ -108,11 +113,11 @@ public class PigeonMouvement : MonoBehaviour
         ApplyScaledWeight();
     }
 
-<<<<<<< HEAD
+
 	public float GetSpeed(){
 		return speed;
 	}
-=======
+
     private void ApplyWeightLose(int calories)
     {
         Debug.Log("Le pigeon perds un poid de - " + calories);
@@ -142,5 +147,5 @@ public class PigeonMouvement : MonoBehaviour
     }
 
     #endregion
->>>>>>> 2fa68bf3913e09e5d98033919b884289228d7e05
+
 }
