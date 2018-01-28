@@ -55,7 +55,7 @@ public class PigeonMouvement : MonoBehaviour
             //TODO: quelque chose ici ?
         }
 
-		if (other.tag == "DeathWall") {
+		if ((other.tag == "DeathWall")||(other.tag == "TopDeathWall")) {
 			SceneManager.LoadScene("GameOver");
 		}
     }
