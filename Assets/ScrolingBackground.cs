@@ -27,7 +27,7 @@ public class ScrolingBackground : MonoBehaviour {
 	}
 
 	private void Update(){
-		transform.Translate (0.1f, 0, 0);
+		transform.Translate (-0.1f, 0, 0);
 		if (parallax) {
 			float deltaX = cameraTransform.position.x - lastCameraX;
 			transform.position += Vector3.right * (deltaX * paralaxSpeed);
