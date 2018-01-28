@@ -14,9 +14,9 @@ public class BackEnnemi : Ennemi
 
 	}
 
-	protected override void Move()
+    public override void Move()
 	{
-		x = L_direction * Time.deltaTime * L_speed;
+		x = L_direction * Time.deltaTime * speed;
 		transform.Translate(x, 0, 0);
 	}
 
@@ -37,7 +37,7 @@ public class BackEnnemi : Ennemi
 		}
 	}
 
-	public void Reint()
+	public override void Reint()
 	{
 		gameObject.SetActive(true);
 		transform.position = new Vector3(-10f, Random.Range(0, 6000f) / 1000, -4f);

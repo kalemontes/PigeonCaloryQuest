@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b3a40affb14f846b894a5842802abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  L_speed: 7
+  speed: 5
   calories: 10

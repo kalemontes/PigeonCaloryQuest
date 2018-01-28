@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1928716822738994}
+  m_RootGameObject: {fileID: 1397664359399664}
   m_IsPrefabParent: 1
---- !u!1 &1928716822738994
+--- !u!1 &1397664359399664
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4468794562187018}
-  - component: {fileID: 33707004624288378}
-  - component: {fileID: 65824552532040764}
-  - component: {fileID: 23038567375663284}
-  - component: {fileID: 54411037526915044}
-  - component: {fileID: 114654426243345126}
+  - component: {fileID: 4849291209917148}
+  - component: {fileID: 33465888206740340}
+  - component: {fileID: 65728644651769310}
+  - component: {fileID: 23708514443164988}
+  - component: {fileID: 54549081054807788}
+  - component: {fileID: 114824498666117636}
   m_Layer: 0
-  m_Name: BackEnnemi
-  m_TagString: BackEnnemi
+  m_Name: Cube
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4468794562187018
+--- !u!4 &4849291209917148
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928716822738994}
+  m_GameObject: {fileID: 1397664359399664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0228403, y: 8.78564, z: -10.746149}
+  m_LocalPosition: {x: 81.19055, y: 38.683914, z: 98.45955}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23038567375663284
+--- !u!23 &23708514443164988
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928716822738994}
+  m_GameObject: {fileID: 1397664359399664}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f7b80ab541156a04d8c96c3e137a6cf3, type: 2}
+  - {fileID: 2100000, guid: 914716266b0c1094c8b2141f4f6d1702, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,19 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33707004624288378
+--- !u!33 &33465888206740340
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928716822738994}
+  m_GameObject: {fileID: 1397664359399664}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54411037526915044
+--- !u!54 &54549081054807788
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928716822738994}
+  m_GameObject: {fileID: 1397664359399664}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -98,30 +98,32 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65824552532040764
+--- !u!65 &65728644651769310
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928716822738994}
+  m_GameObject: {fileID: 1397664359399664}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114654426243345126
+--- !u!114 &114824498666117636
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928716822738994}
+  m_GameObject: {fileID: 1397664359399664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbea717ad1652ba4dba25e06de20b5f6, type: 3}
+  m_Script: {fileID: 11500000, guid: dd977af528f4eaa429c701970ceca6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  calories: 20
+  speed: 2
+  calories: 3
+  prefabObusFrag: {fileID: 1133902175781474, guid: 3015879507aa3bc4386c44ce668b1aa9,
+    type: 2}
