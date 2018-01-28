@@ -10,7 +10,7 @@ public class PigeonMouvement : MonoBehaviour
     private const int MAX_GAIN_WEIGHT = MAX_WEIGHT - STANDARD_WEIGHT;
     private const int MAX_SCALE_LEVELS = 5;
     private const float SCALE_WEIGHT_FACTOR = 0.5f;
-    private const int WEIGHT_LOOSE_FACTOR = 5;  // nombre de grammes perdus par le pigeon à chaque effort
+    private const int WEIGHT_LOOSE_FACTOR = 1;  // nombre de grammes perdus par le pigeon à chaque effort
 
     private const int MIN_DRAG = 1;
     private const int MAX_DRAG = 10;
