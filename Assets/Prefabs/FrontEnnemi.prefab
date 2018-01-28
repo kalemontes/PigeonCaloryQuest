@@ -23,11 +23,7 @@ GameObject:
   - component: {fileID: 65807634916458140}
   - component: {fileID: 23545591246508938}
   - component: {fileID: 54417827343453716}
-<<<<<<< HEAD
-  - component: {fileID: 114557115134114094}
-=======
   - component: {fileID: 114883152529733876}
->>>>>>> c79f8da57d97640fb1359b7fc1fefda058b1be8a
   m_Layer: 0
   m_Name: FrontEnnemi
   m_TagString: FrontEnnemi
@@ -116,7 +112,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114557115134114094
+--- !u!114 &114883152529733876
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
