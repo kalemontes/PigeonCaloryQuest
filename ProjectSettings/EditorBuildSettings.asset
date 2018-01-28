@@ -20,3 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Acceuil.unity
     guid: 70c52fe9022d4d6468703de02406b592
+  - enabled: 1
+    path: Assets/_Scenes/Recompense 1.unity
+    guid: 814b401ffe561f145b30ac75b200bf0f
+  - enabled: 1
+    path: Assets/_Scenes/Recompense 2.unity
+    guid: 54b53f05768011845a3de4bd2566d65b
+  - enabled: 1
+    path: Assets/_Scenes/Recompense 3.unity
+    guid: 9783d2a3d72c56a438373d6758678c13

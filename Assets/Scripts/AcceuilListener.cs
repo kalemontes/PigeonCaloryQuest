@@ -15,7 +15,7 @@ public class AcceuilListener : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space)) {
 			SceneManager.LoadScene ("Tutorial");
 		}
-		if ((Input.GetKey (KeyCode.LeftShift))||(Input.GetKey (KeyCode.RightShift))) {
+		if ((Input.GetKey (KeyCode.Return))) {
 			SceneManager.LoadScene ("Main_Scene");
 		}
 	}
