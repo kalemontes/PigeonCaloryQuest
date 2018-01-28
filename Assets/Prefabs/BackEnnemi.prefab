@@ -23,7 +23,11 @@ GameObject:
   - component: {fileID: 65824552532040764}
   - component: {fileID: 23038567375663284}
   - component: {fileID: 54411037526915044}
+<<<<<<< HEAD
+  - component: {fileID: 114558498239025990}
+=======
   - component: {fileID: 114654426243345126}
+>>>>>>> c79f8da57d97640fb1359b7fc1fefda058b1be8a
   m_Layer: 0
   m_Name: BackEnnemi
   m_TagString: BackEnnemi
@@ -112,7 +116,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+--- !u!114 &114558498239025990
+=======
 --- !u!114 &114654426243345126
+>>>>>>> c79f8da57d97640fb1359b7fc1fefda058b1be8a
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
