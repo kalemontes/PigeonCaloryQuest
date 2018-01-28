@@ -13,6 +13,12 @@ public class ProjectilEnnemi : Ennemi {
         throw new System.NotImplementedException();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        HandleCollisionWithDeathWall(other);
+        HandleCollisionWithPigeon(other);
+    }
+
     // Use this for initialization
     void Start () {
 		

@@ -16,7 +16,7 @@ public class PigeonMouvement : MonoBehaviour
     private const int MAX_DRAG = 10;
 
     private Vector3 initialScale;
-    public Rigidbody rigidBody;
+    private Rigidbody rigidBody;
 
     public float speed;
     public float weight;

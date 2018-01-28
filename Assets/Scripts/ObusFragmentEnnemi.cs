@@ -33,6 +33,12 @@ public class ObusFragmentEnnemi : Ennemi
         rb.velocity = position;
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        HandleCollisionWithDeathWall(other);
+        HandleCollisionWithPigeon(other);
+    }
+
     #region Non needed
 
     public override void Move()
