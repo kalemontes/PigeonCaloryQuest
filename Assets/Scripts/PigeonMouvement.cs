@@ -47,39 +47,24 @@ public class PigeonMouvement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Une collision avec quelque chose");
-        bool didCollideWithEnnemi = HandleCollisionWithFrontEnnemi(other) ||
-            HandleCollisionWithBackeEnnemi(other);
+        bool didCollideWithEnnemi = HandleCollisionWithEnnemi(other);
         if (didCollideWithEnnemi)
         {
             //TODO: quelque chose ici ?
         }
 
-		if ((other.tag == "DeathWall")||(other.tag == "TopDeathWall")) {
+		if (other.tag == "DeathWall" || other.tag == "Ground") {
 			SceneManager.LoadScene("GameOver");
 		}
     }
 
-    private bool HandleCollisionWithFrontEnnemi(Collider other)
+    private bool HandleCollisionWithEnnemi(Collider other)
     {
         bool didHandle = false;
-        FrontEnnemi frontEnnemi = other.GetComponent<FrontEnnemi>();
-        if (frontEnnemi)
+        Ennemi ennemi = other.GetComponent<Ennemi>();
+        if (ennemi)
         {
-            //Debug.Log("Collision avec un FrontEnnemi detectée");
-            ApplyWeightGain(frontEnnemi.calories);
-            didHandle = true;
-        }
-        return didHandle;
-    }
-
-    private bool HandleCollisionWithBackeEnnemi(Collider other)
-    {
-        bool didHandle = false;
-        BackEnnemi backEnnemi = other.GetComponent<BackEnnemi>();
-        if (backEnnemi)
-        {
-            ApplyWeightGain(backEnnemi.calories);
+            ApplyWeightGain(ennemi.calories);
             didHandle = true;
         }
         return didHandle;

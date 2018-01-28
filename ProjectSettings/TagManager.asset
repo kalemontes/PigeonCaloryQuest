@@ -8,7 +8,7 @@ TagManager:
   - DeathWall
   - FrontEnnemi
   - BackEnnemi
-  - TopDeathWall
+  - Ground
   layers:
   - Default
   - TransparentFX
